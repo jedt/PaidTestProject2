@@ -24,7 +24,7 @@ var styles = StyleSheet.create({
 var App = React.createClass({
   getInitialState: function() {
     return ({
-      currentView: 'Dashboard'
+      currentView: 'Login'
     });
   },
 

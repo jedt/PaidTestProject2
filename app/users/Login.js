@@ -13,14 +13,15 @@ var {
   View,
   Text,
   TextInput,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  StatusBar
 } = ReactNative;
 
 var styles = StyleSheet.create({
   ...MainStyleSheet,
   content : {
-    height: deviceHeight,
     justifyContent: 'center',
+    height: deviceHeight - StatusBar.currentHeight,
   },
 });
 
@@ -30,29 +31,31 @@ var Login = React.createClass({
   },
   render: function() {
     return (
-      <View style={styles.formWrapper}>
-        <View style={styles.inputGroup}>
-          <Text style={styles.inputLabel}>Email</Text>
-          <TextInput style={styles.input}/>
-        </View>
+      <View style={styles.content}>
+        <View style={styles.formWrapper}>
+          <View style={styles.inputGroup}>
+            <Text style={styles.inputLabel}>Email</Text>
+            <TextInput style={styles.input}/>
+          </View>
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.inputLabel}>Password</Text>
-          <TextInput style={styles.input}/>
-        </View>
+          <View style={styles.inputGroup}>
+            <Text style={styles.inputLabel}>Password</Text>
+            <TextInput style={styles.input}/>
+          </View>
 
-        <View>
-          <TouchableNativeFeedback
-                onPress={this._handleOnPressLogin}
-                background={TouchableNativeFeedback.SelectableBackground()}
-                delayPressIn={0}
-            >
-              <View style={styles.buttonWrapper48}>
-                <View elevation={2} style={[styles.activeButton]}>
-                  <Text style={styles.buttonText}>LOG IN</Text>
+          <View>
+            <TouchableNativeFeedback
+                  onPress={this._handleOnPressLogin}
+                  background={TouchableNativeFeedback.SelectableBackground()}
+                  delayPressIn={0}
+              >
+                <View style={styles.buttonWrapper48}>
+                  <View elevation={2} style={[styles.activeButton]}>
+                    <Text style={styles.buttonText}>LOG IN</Text>
+                  </View>
                 </View>
-              </View>
-            </TouchableNativeFeedback>
+              </TouchableNativeFeedback>
+          </View>
         </View>
       </View>
     );
